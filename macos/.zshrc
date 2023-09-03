@@ -151,6 +151,8 @@ export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+bindkey -s ^f "tmux-sessionizer\n"
+
 # # Fig post block. Keep at the bottom of this file.
 #
 
