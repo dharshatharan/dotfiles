@@ -58,12 +58,12 @@ window:
   # Values for `decorations`:
   #     - full: Borders and title bar
   #     - none: Neither borders nor title bar
-  decorations: "none"
+  decorations: "full"
   #
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  # decorations: buttonless
+  decorations: buttonless
 
   # Background opacity
   #
@@ -115,14 +115,14 @@ font:
   # Normal (roman) font face
   normal:
     family: "Agave Nerd Font"
-    style: Roman
+    style: Regular
   bold:
     family: "Agave Nerd Font"
     style: Bold
   italic:
     family: "Agave Nerd Font"
     style: Italic
-  size: 14.0
+  size: 18.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
