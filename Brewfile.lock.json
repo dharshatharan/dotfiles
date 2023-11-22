@@ -2194,6 +2194,14 @@
             }
           }
         }
+      },
+      "felixkratz/formulae/borders": {
+        "version": "1.2.5",
+        "bottle": false
+      },
+      "felixkratz/formulae/svim": {
+        "version": "1.0.10",
+        "bottle": false
       }
     },
     "cask": {
