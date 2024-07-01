@@ -25,7 +25,7 @@ return {
     opts = {
       indent = {
         char = "│",
-        tab_char = { "a", "b", "c" },
+        tab_char = "│",
         highlight = { "Function", "Label" },
         smart_indent_cap = true,
         priority = 2,
@@ -36,8 +36,19 @@ return {
   {
     'ThePrimeagen/harpoon',
     config = function()
+      local harpoon = require("harpoon")
       local mark = require("harpoon.mark")
       local ui = require("harpoon.ui")
+
+      harpoon.setup({
+        tabline = true,
+      })
+
+      vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+      vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
+      vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
+      vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
+      vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
 
       vim.keymap.set('n', '<leader>ha', mark.add_file)
       vim.keymap.set('n', '<leader>hh', ui.toggle_quick_menu)

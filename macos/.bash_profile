@@ -19,3 +19,5 @@ unset __conda_setup
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.post.bash"
+
+complete -C /opt/homebrew/bin/terraform terraform

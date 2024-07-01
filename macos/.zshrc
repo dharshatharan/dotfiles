@@ -148,13 +148,19 @@ function brew() {
 
 export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
 
+export PATH=$PATH:$(go env GOPATH)/bin
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 bindkey -s ^f "tmux-sessionizer\n"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # # Fig post block. Keep at the bottom of this file.
 #
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+export PATH="$HOME/.fuelup/bin:$PATH"
