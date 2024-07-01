@@ -89,5 +89,59 @@ return {
         end,
       })
     end,
+  },
+  {
+    'prettier/vim-prettier',
+    run = 'yarn install',
+    ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'json' },
+    config = function()
+      vim.cmd([[
+      augroup PrettierAutoFormat
+        autocmd!
+        autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx,*.json PrettierAsync
+      augroup END
+    ]])
+    end
+  },
+  {
+    'neovim/nvim-lspconfig',
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/lsp-status.nvim' },
+    config = function()
+      require('lsp-status').register_progress()
+      local lspconfig = require('lspconfig')
+      local null_ls = require('null-ls')
+
+      -- Enable null-ls integration
+      require('lspconfig')['null-ls'].setup {}
+
+      -- Configure LSP servers for JavaScript and TypeScript
+      lspconfig.tsserver.setup {}
+
+      -- Enable ESLint
+      require('lint-config').init({
+        linters = {
+          eslint = {
+            sourceName = 'eslint',
+            command = 'eslint',
+            rootPatterns = { '.eslintrc.js', '.eslintrc.json' },
+            debounce = 100,
+            args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
+            parseJson = {
+              errorsRoot = '[0].messages',
+              line = 'line',
+              column = 'column',
+              endLine = 'endLine',
+              endColumn = 'endColumn',
+              message = '${message} [${ruleId}]',
+              security = 'severity'
+            },
+            securities = { [2] = 'error', [1] = 'warning' },
+          },
+        },
+        lintSource = 'eslint',
+        formatFiletypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' }
+      })
+    end
   }
 }

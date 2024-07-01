@@ -1,0 +1,32 @@
+import = ["/Users/dharsh.aronan/.config/alacritty/rose-pine/rose-pine.yml"]
+
+[cursor.style]
+blinking = "On"
+
+[font]
+size = 18.0
+
+[font.bold]
+family = "Agave Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Agave Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Agave Nerd Font"
+style = "Regular"
+
+[shell]
+program = "/bin/zsh"
+args = ["-l", "-c", "tmux attach || tmux new-session -s default"]
+
+[window]
+decorations = "Buttonless"
+opacity = 0.985
+option_as_alt = "OnlyLeft"
+
+[window.padding]
+x = 5
+y = 5
