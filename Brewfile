@@ -85,4 +85,3 @@ vscode "mvllow.rose-pine"
 vscode "PKief.material-icon-theme"
 vscode "vscodevim.vim"
 vscode "yoavbls.pretty-ts-errors"
-
