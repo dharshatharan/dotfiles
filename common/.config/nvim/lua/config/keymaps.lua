@@ -43,3 +43,17 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- Git
 vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>gb', '<cmd>Git blame<cr>', { noremap = true, silent = true })
+
+-- Tab navigation
+vim.keymap.set('n', '<leader>1', '1gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>2', '2gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>3', '3gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>4', '4gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>5', '5gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>6', '6gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>7', '7gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>8', '8gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>9', '9gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>0', '10gt', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tq', '<cmd>tabclose<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tn', '<cmd>tabnew<cr>', { noremap = true, silent = true })
