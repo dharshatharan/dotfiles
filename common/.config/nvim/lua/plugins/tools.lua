@@ -16,7 +16,7 @@ return {
     end,
   },
   'tpope/vim-surround',
-  -- 'wakatime/vim-wakatime',
+  'wakatime/vim-wakatime',
   {
     "kdheepak/lazygit.nvim",
     -- optional for floating window border decoration
