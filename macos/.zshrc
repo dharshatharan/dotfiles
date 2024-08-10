@@ -148,6 +148,7 @@ function brew() {
 
 export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 export PATH=$PATH:$(go env GOPATH)/bin
 
