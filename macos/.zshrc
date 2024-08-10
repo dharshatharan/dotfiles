@@ -149,7 +149,7 @@ function brew() {
 export PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH=$PATH:$(go env GOPATH)/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
