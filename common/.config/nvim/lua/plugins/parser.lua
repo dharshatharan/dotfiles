@@ -37,8 +37,20 @@ return {
               ['ia'] = '@parameter.inner',
               ['af'] = '@function.outer',
               ['if'] = '@function.inner',
+              ['am'] = '@call.outer',
+              ['im'] = '@call.inner',
               ['ac'] = '@class.outer',
               ['ic'] = '@class.inner',
+              ['ii'] = '@conditional.inner',
+              ['ai'] = '@conditional.outer',
+              ['il'] = '@loop.inner',
+              ['al'] = '@loop.outer',
+              ['a='] = '@assignment.outer',
+              ['i='] = '@assignment.outer',
+              ['l='] = '@assignment.lhs',
+              ['r='] = '@assignment.rhs',
+              ["ad"] = "@comment.outer",
+              ["id"] = "@comment.inner",
             },
           },
           move = {
@@ -46,28 +58,28 @@ return {
             set_jumps = true, -- whether to set jumps in the jumplist
             goto_next_start = {
               [']m'] = '@function.outer',
-              [']]'] = '@class.outer',
+              [']c'] = '@class.outer',
             },
             goto_next_end = {
               [']M'] = '@function.outer',
-              [']['] = '@class.outer',
+              [']C'] = '@class.outer',
             },
             goto_previous_start = {
               ['[m'] = '@function.outer',
-              ['[['] = '@class.outer',
+              ['[c'] = '@class.outer',
             },
             goto_previous_end = {
               ['[M'] = '@function.outer',
-              ['[]'] = '@class.outer',
+              ['[C'] = '@class.outer',
             },
           },
           swap = {
             enable = true,
             swap_next = {
-              ['<leader>a'] = '@parameter.inner',
+              ['<leader>na'] = '@parameter.inner',
             },
             swap_previous = {
-              ['<leader>A'] = '@parameter.inner',
+              ['<leader>pa'] = '@parameter.inner',
             },
           },
         },
