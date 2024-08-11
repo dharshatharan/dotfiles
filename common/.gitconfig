@@ -13,6 +13,10 @@
 [delta]
 	features = decorations
 	side-by-side = true
+	plus-style = "syntax #004400"
+	plus-emph-style = "syntax #007700"
+	minus-style = "syntax #660000"
+	minus-emph-style = "syntax #770000"
 
 [delta "interactive"]
 	keep-plus-minus-markers = false
