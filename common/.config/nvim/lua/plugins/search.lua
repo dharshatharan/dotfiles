@@ -17,20 +17,33 @@ return {
           return vim.fn.executable 'make' == 1
         end,
       },
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        -- This will not install any breaking changes.
+        -- For major updates, this must be adjusted manually.
+        version = "^1.0.0",
+      },
     },
     config = function()
       -- [[ Configure Telescope ]]
       local telescope = require('telescope')
+      local actions = require('telescope.actions')
+      local lga_actions = require("telescope-live-grep-args.actions")
 
       -- See `:help telescope` and `:help telescope.setup()`
       telescope.setup {
         defaults = {
           mappings = {
             n = {
-              ['<c-x>'] = require('telescope.actions').delete_buffer
+              ['<c-x>'] = actions.delete_buffer
             },
             i = {
-              ['<c-x>'] = require('telescope.actions').delete_buffer
+              ['<c-x>'] = actions.delete_buffer,
+              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+              ["<C-t>"] = lga_actions.quote_prompt({ postfix = " -t " }),
+              -- freeze the current list and start a fuzzy search in the frozen list
+              ["<C-f>"] = actions.to_fuzzy_refine,
             },
           },
         },
@@ -39,6 +52,7 @@ return {
       -- Enable telescope fzf native, if installed
       pcall(telescope.load_extension, 'fzf')
 
+      pcall(telescope.load_extension("live_grep_args"))
 
       vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
       vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
@@ -50,7 +64,7 @@ return {
       vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Find Files' })
       vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Find Help' })
       vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = 'Find Current Word' })
-      vim.keymap.set('n', '<leader>ft', require('telescope.builtin').live_grep, { desc = 'Grep Text' })
+      vim.keymap.set("n", "<leader>ft", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
       vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Find Diagnostic' })
       vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = 'Find References' })
       vim.keymap.set('n', '<leader>fs', require('telescope.builtin').lsp_document_symbols,
