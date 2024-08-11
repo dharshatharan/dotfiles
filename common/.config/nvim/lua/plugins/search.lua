@@ -52,6 +52,11 @@ return {
       vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = 'Find Current Word' })
       vim.keymap.set('n', '<leader>ft', require('telescope.builtin').live_grep, { desc = 'Grep Text' })
       vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Find Diagnostic' })
+      vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = 'Find References' })
+      vim.keymap.set('n', '<leader>fs', require('telescope.builtin').lsp_document_symbols,
+        { desc = 'Find Document Symbols' })
+      vim.keymap.set('n', '<leader>fm', require('telescope.builtin').marks, { desc = 'Find Marks' })
+      vim.keymap.set('n', '<leader>fq', require('telescope.builtin').quickfix, { desc = 'Find Quickfix' })
     end,
   },
 }
