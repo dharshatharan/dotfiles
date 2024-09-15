@@ -29,14 +29,14 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 30
+accordion-padding = 15
 
 [gaps]
 inner.horizontal = 5
 inner.vertical =   5
 outer.left =       5
 outer.bottom =     5
-outer.top =        12
+outer.top =        [{ monitor."built-in" = 12 }, 44]
 outer.right =      5
 
 [mode.main.binding]
