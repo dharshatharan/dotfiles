@@ -42,10 +42,10 @@ outer.right =      5
 [mode.main.binding]
 # alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
 
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+alt-h = 'focus --boundaries-action stop left'
+alt-j = 'focus --boundaries-action stop down'
+alt-k = 'focus --boundaries-action stop up'
+alt-l = 'focus --boundaries-action stop right'
 
 alt-shift-h = 'move left'
 alt-shift-j = 'move down'
