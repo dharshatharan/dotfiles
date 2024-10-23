@@ -24,7 +24,7 @@ args = ["-l", "-c", "tmux attach || tmux new-session -s default"]
 
 [window]
 decorations = "Buttonless"
-opacity = 0.985
+opacity = 1
 option_as_alt = "OnlyLeft"
 
 [window.padding]
