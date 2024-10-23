@@ -67,7 +67,9 @@ return {
     "github/copilot.vim",
     config = function()
       vim.g.copilot_no_tab_map = true
+      vim.g.copilot_enabled = 0
       vim.api.nvim_set_keymap("i", "<leader><tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+      vim.api.nvim_set_keymap("i", "<C-]>", "<Plug>(copilot-suggest)", { silent = true })
     end
   },
 }
