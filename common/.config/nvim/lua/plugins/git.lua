@@ -28,6 +28,15 @@ return {
   },
 
   {
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+  },
+
+  {
     'pwntester/octo.nvim',
     requires = {
       'nvim-lua/plenary.nvim',
