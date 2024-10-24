@@ -51,8 +51,8 @@ return {
 
       -- Enable telescope fzf native, if installed
       pcall(telescope.load_extension, 'fzf')
-
       pcall(telescope.load_extension("live_grep_args"))
+      pcall(telescope.load_extension "file_browser")
 
       vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
       vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
@@ -71,6 +71,13 @@ return {
         { desc = 'Find Document Symbols' })
       vim.keymap.set('n', '<leader>fm', require('telescope.builtin').marks, { desc = 'Find Marks' })
       vim.keymap.set('n', '<leader>fq', require('telescope.builtin').quickfix, { desc = 'Find Quickfix' })
+      vim.keymap.set('n', '<leader>.',
+        ":lua require'telescope'.extensions.file_browser.file_browser{path = vim.fn.expand('%:p:h'), cwd_to_path = true, prompt_path = true}<CR>",
+        { desc = 'File browser' })
     end,
   },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  }
 }
