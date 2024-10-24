@@ -49,3 +49,6 @@ vim.g.netrw_winsize = 15
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Fix termguicolors
+vim.o.termguicolors = true
