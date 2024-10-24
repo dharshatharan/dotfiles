@@ -1,26 +1,30 @@
-import = ["/Users/dharsh.aronan/.config/alacritty/rose-pine/rose-pine.yml"]
+import = ["~/.config/alacritty/rose-pine/rose-pine.toml"]
+
+[env]
+TERM = 'xterm-256color'
 
 [cursor.style]
 blinking = "On"
 
 [font]
-size = 18.0
+size = 13.0
 
 [font.bold]
-family = "Agave Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "Agave Nerd Font"
-style = "Italic"
+family = "JetBrainsMono Nerd Font"
+style = "Light"
 
 [font.normal]
-family = "Agave Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [shell]
 program = "/bin/zsh"
-args = ["-l", "-c", "tmux attach || tmux new-session -s default"]
+args = ["-l"] 
+# "-c", "tmux attach || tmux new-session -s default"]
 
 [window]
 decorations = "Buttonless"
