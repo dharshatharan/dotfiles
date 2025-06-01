@@ -1,4 +1,3 @@
-import = ["~/.config/alacritty/rose-pine/rose-pine.toml"]
 
 [env]
 TERM = 'xterm-256color'
@@ -21,7 +20,7 @@ style = "Light"
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = ["-l"] 
 # "-c", "tmux attach || tmux new-session -s default"]
@@ -34,3 +33,8 @@ option_as_alt = "OnlyLeft"
 [window.padding]
 x = 5
 y = 5
+
+[general]
+import = ["~/.config/alacritty/rose-pine/rose-pine.toml"]
+
+[terminal]
