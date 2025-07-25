@@ -17,7 +17,7 @@
 	plus-style = "syntax #004400"
 	plus-emph-style = "syntax #007700"
 	minus-style = "syntax #660000"
-	minus-emph-style = "syntax #770000"
+	minus-emph-style = "syntax #AA0000"
 
 [delta "interactive"]
 	keep-plus-minus-markers = false
@@ -34,8 +34,26 @@
 [user]
 	name = dharshatharan
 	email = dharshatharan@gmail.com
+	signingkey = A24D9C5B926A3AD12FC1084AD973778BEB2E4336
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[init]
+	defaultBranch = main
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+[merge]
+	conflictstyle = zdiff3
