@@ -200,6 +200,9 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 export PATH="$HOME/.fuelup/bin:$PATH"
 
+# Added by Windsurf
+export PATH="/Users/dharsh/.codeium/windsurf/bin:$PATH"
+
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
