@@ -107,68 +107,32 @@ return {
         adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
       })
 
-      for _, language in ipairs({ "typescript", "javascript", "svelte", "javascriptreact", "typescriptreact" }) do
+      local js_based_languages = { "typescript", "javascript", "typescriptreact" }
+
+      for _, language in ipairs(js_based_languages) do
         require("dap").configurations[language] = {
-          -- Debug single nodejs files
           {
             type = "pwa-node",
             request = "launch",
             name = "Launch file",
             program = "${file}",
-            cwd = vim.fn.getcwd(),
-            sourceMaps = true,
-          },
-          -- Debug single ts file using ts-node
-          {
-            type = "pwa-node",
-            request = "launch",
-            name = "Launch ts-node",
-            program = "${file}",
-            cwd = vim.fn.getcwd(),
-            sourceMaps = true,
-            runtimeArgs = { "-r", "ts-node/register" },
-          },
-          -- attach to a node process that has been started with
-          -- `--inspect` for longrunning tasks or `--inspect-brk` for short tasks
-          -- npm script -> `node --inspect-brk ./node_modules/.bin/vite dev`
-          {
-            type = "pwa-node",
-            -- attach to a running node process
-            -- default port: 9229
-            request = "attach",
-            name = "Attach debugger to running node process",
             cwd = "${workspaceFolder}",
-            sourceMaps = true,
+          },
+          {
+            type = "pwa-node",
+            request = "attach",
+            name = "Attach",
+            processId = require 'dap.utils'.pick_process,
+            cwd = "${workspaceFolder}",
           },
           {
             type = "pwa-chrome",
             request = "launch",
-            name = "Launch & Debug Chrome",
-            url = function()
-              local co = coroutine.running()
-              return coroutine.create(function()
-                vim.ui.input({
-                  prompt = "Enter URL: ",
-                  default = "http://localhost:3000",
-                }, function(url)
-                  if url == nil or url == "" then
-                    return
-                  else
-                    coroutine.resume(co, url)
-                  end
-                end)
-              end)
-            end,
-            webRoot = vim.fn.getcwd(),
-            protocol = "inspector",
-            sourceMaps = true,
-            userDataDir = false,
-          },
-          {
-            name = "----- ↓ launch.json configs ↓ -----",
-            type = "",
-            request = "launch",
-          },
+            name = "Start Chrome with \"localhost\"",
+            url = "http://localhost:3000",
+            webRoot = "${workspaceFolder}",
+            userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir"
+          }
         }
       end
     end,
