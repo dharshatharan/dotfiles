@@ -95,6 +95,7 @@ return {
     run = 'yarn install',
     ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'json' },
     config = function()
+      vim.g['prettier#config#config_precedence'] = 'prefer-file'
       vim.cmd([[
       augroup PrettierAutoFormat
         autocmd!
