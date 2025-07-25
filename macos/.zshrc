@@ -1,6 +1,3 @@
-# # Fig pre block. Keep at the top of this file.
-# [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-# # Fig pre block. Keep at the top of this file.
 # # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -138,6 +135,9 @@ eval "$(starship init zsh)"
 # Zoxide init
 eval "$(zoxide init zsh)"
 
+# direnv init
+eval "$(direnv hook zsh)"
+
 function brew() {
   command brew "$@" 
 
@@ -191,9 +191,8 @@ export ANDROID_AVD_HOME=~/.android/avd
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
-# # Fig post block. Keep at the bottom of this file.
-#
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
-# # Fig post block. Keep at the bottom of this file.
-# [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-export PATH="$HOME/.fuelup/bin:$PATH"
+[ -f ~/.zshsecrets ] && source ~/.zshsecrets
