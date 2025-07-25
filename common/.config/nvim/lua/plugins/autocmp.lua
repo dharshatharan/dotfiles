@@ -63,13 +63,53 @@ return {
       }
     end
   },
+  -- {
+  --   "github/copilot.vim",
+  --   config = function()
+  --     vim.g.copilot_no_tab_map = true
+  --     vim.g.copilot_enabled = 0
+  --     vim.api.nvim_set_keymap("i", "<leader><tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+  --     vim.api.nvim_set_keymap("i", "<C-]>", "<Plug>(copilot-suggest)", { silent = true })
+  --   end
+  -- },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   build = ":Copilot auth",
+  --   event = "BufReadPost",
+  --   opts = {
+  --     suggestion = {
+  --       enabled = not vim.g.ai_cmp,
+  --       auto_trigger = true,
+  --       hide_during_completion = vim.g.ai_cmp,
+  --       keymap = {
+  --         accept = '<leader><tab>',
+  --         next = "<M-]>",
+  --         prev = "<M-[>",
+  --       },
+  --     },
+  --     panel = { enabled = false },
+  --     filetypes = {
+  --       markdown = true,
+  --       help = true,
+  --     },
+  --   },
+  -- }
   {
-    "github/copilot.vim",
-    config = function()
-      vim.g.copilot_no_tab_map = true
-      vim.g.copilot_enabled = 0
-      vim.api.nvim_set_keymap("i", "<leader><tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-      vim.api.nvim_set_keymap("i", "<C-]>", "<Plug>(copilot-suggest)", { silent = true })
-    end
-  },
+    {
+      "supermaven-inc/supermaven-nvim",
+      config = function()
+        require("supermaven-nvim").setup({
+          condition = function()
+            local file = vim.fn.expand("%:p")
+            if file == "" or vim.fn.filereadable(file) == 0 then
+              return false
+            end
+            local ok, result = pcall(vim.fn.systemlist, { "git", "check-ignore", file })
+            return ok and next(result) ~= nil
+          end
+        })
+      end,
+    },
+  }
 }
