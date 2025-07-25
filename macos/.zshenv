@@ -1,3 +1,3 @@
-# . "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 
 export PATH=$HOME/development/flutter/bin:$PATH
