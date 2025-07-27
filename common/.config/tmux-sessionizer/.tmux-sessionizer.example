@@ -1,0 +1,9 @@
+#!/bin/bash
+# Create your desired layout
+
+tmux split-window -h -p 33 -c "$(pwd)"
+tmux send-keys -t 1 "nvim" C-m
+tmux send-keys -t 2 "opencode" C-m
+tmux new-window -c "$(pwd)"
+tmux select-window -t 1
+tmux select-pane -t 1
