@@ -47,6 +47,16 @@ return {
             },
           },
         },
+        pickers = {
+          find_files = {
+            hidden = true,
+            file_ignore_patterns = { "^%.git/" }
+          },
+          git_files = {
+            hidden = true,
+            show_untracked = true
+          }
+        }
       }
 
       -- Enable telescope fzf native, if installed
