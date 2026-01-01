@@ -1,4 +1,4 @@
-theme = rose-pine
+theme = Rose Pine
 macos-titlebar-style = hidden
 keybind = global:cmd+alt+t=toggle_quick_terminal
 keybind = global:cmd+enter=unbind
